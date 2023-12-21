@@ -1,6 +1,6 @@
 //singleton objects
 
-//type 2 objects
+//type 2 objects - object literal
 
 const mySym = Symbol("key1")
 
