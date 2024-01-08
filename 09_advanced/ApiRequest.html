@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style = "background-color : #212121;">
+    <h1>Hitesh Choudary</h1>
+    <button id="photo">GET PHOTO</button>
+    <div id="imageContainer"></div>
+
+</body>
+
+<script>
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET' , requestUrl)
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4){
+            const data = JSON.parse(this.responseText)
+            console.log(data)
+            console.log(data.followers);
+            console.log(typeof data.avatar_url)
+        }
+    }
+    xhr.send();
+
+    document.querySelector('#photo').addEventListener('click' , function(e){
+        let displayImage = document.createElement('img')
+        let imageContainer = document.getElementById("imageContainer")
+        displayImage.src = "/Users/richcriticism/Downloads/gambhir for a reason.jpeg"
+        imageContainer.appendChild(displayImage)
+    })
+</script>
+
+
+</html>
